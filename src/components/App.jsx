@@ -1,7 +1,12 @@
 import "../scss/App.scss";
+import Card from "./Card";
 
 function App() {
-  return <div>Escribe aquí tu código</div>;
+  return (
+    <div>
+      <Card />
+    </div>
+  );
 }
 
 export default App;
