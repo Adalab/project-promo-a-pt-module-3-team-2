@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import "../scss/Card.scss";
+import PropTypes from 'prop-types';
+import '../scss/Card.scss';
 
 function Card() {
   return (

@@ -1,6 +1,8 @@
+import '../scss/Form.scss';
+
 function Form() {
   return (
-    <div>
+    <>
       <form className="addForm">
         <h2 className="title">Información</h2>
         <fieldset className="addForm__group">
@@ -73,7 +75,7 @@ function Form() {
         </fieldset>
 
         <fieldset className="addForm__group--upload">
-          <label for="image" className="button">
+          <label htmlFor="image" className="button">
             Subir foto del proyecto
           </label>
           <input
@@ -82,7 +84,7 @@ function Form() {
             name="image"
             id="image"
           />
-          <label for="photo" className="button">
+          <label htmlFor="photo" className="button">
             Subir foto de la autora
           </label>
           <input
@@ -94,7 +96,7 @@ function Form() {
           <button className="button--large">Guardar proyecto</button>
         </fieldset>
       </form>
-    </div>
+    </>
   );
 }
 
