@@ -83,6 +83,7 @@ function Form() {
             type="file"
             name="image"
             id="image"
+            accept="image/*"
           />
           <label htmlFor="photo" className="button">
             Subir foto de la autora
@@ -92,6 +93,7 @@ function Form() {
             type="file"
             name="photo"
             id="photo"
+            accept="image/*"
           />
           <button className="button--large">Guardar proyecto</button>
         </fieldset>
