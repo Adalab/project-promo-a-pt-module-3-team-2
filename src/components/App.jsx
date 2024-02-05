@@ -1,7 +1,7 @@
 import "../scss/App.scss";
 import Header from "./Header";
 import Hero from "./Hero";
-import Card from "./Card";
+import Preview from "./Preview";
 import Form from "./Form";
 import Footer from "./Footer";
 import { useState } from "react";
@@ -26,7 +26,7 @@ function App() {
 
       <main className="main">
         <Hero />
-        <Card />
+        <Preview data={data} />
         <Form />
       </main>
       <Footer />
