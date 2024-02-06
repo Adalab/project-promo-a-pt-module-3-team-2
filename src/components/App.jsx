@@ -1,8 +1,6 @@
 import "../scss/App.scss";
 import Header from "./Header";
-import Hero from "./Hero";
-import Preview from "./Preview";
-import Form from "./Form";
+import Create from "./Create";
 import Footer from "./Footer";
 import { useState } from "react";
 
@@ -23,12 +21,7 @@ function App() {
   return (
     <div>
       <Header />
-
-      <main className="main">
-        <Hero />
-        <Preview data={data} />
-        <Form />
-      </main>
+      <Create data={data} />
       <Footer />
     </div>
   );
