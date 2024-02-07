@@ -1,6 +1,18 @@
 import '../scss/Form.scss';
 
-function Form() {
+import PropTypes from 'prop-types';
+
+function Form({ changeData, data }) {
+
+  const handleChange = (event) => {
+
+    const newValue = event.currentTarget.value;
+    const attrIdOfInput = event.currentTarget.id;
+
+    changeData( attrIdOfInput, newValue );
+  
+  };
+
   return (
     <>
       <form className="addForm">
@@ -15,6 +27,8 @@ function Form() {
             name="name"
             id="name"
             placeholder="Nombre del proyecto"
+            onChange={handleChange}
+            value={data.name}
           />
           <input
             className="addForm__input"
@@ -22,6 +36,8 @@ function Form() {
             name="slogan"
             id="slogan"
             placeholder="Slogan"
+            onChange={handleChange}
+            value={data.slogan}
           />
           <div className="addForm__2col">
             <input
@@ -30,6 +46,8 @@ function Form() {
               name="repo"
               id="repo"
               placeholder="Repositorio"
+              onChange={handleChange}
+              value={data.repo}
             />
             <input
               className="addForm__input"
@@ -37,6 +55,8 @@ function Form() {
               name="demo"
               id="demo"
               placeholder="Demo"
+              onChange={handleChange}
+              value={data.demo}
             />
           </div>
           <input
@@ -45,6 +65,8 @@ function Form() {
             name="technologies"
             id="technologies"
             placeholder="Tecnologías"
+            onChange={handleChange}
+            value={data.technologies}
           />
           <textarea
             className="addForm__input"
@@ -53,6 +75,8 @@ function Form() {
             id="desc"
             placeholder="Descripción"
             rows="5"
+            onChange={handleChange}
+            value={data.desc}
           ></textarea>
         </fieldset>
 
@@ -61,9 +85,11 @@ function Form() {
           <input
             className="addForm__input"
             type="text"
-            name="autor"
-            id="autor"
+            name="author"
+            id="author"
             placeholder="Nombre"
+            onChange={handleChange}
+            value={data.author}
           />
           <input
             className="addForm__input"
@@ -71,6 +97,8 @@ function Form() {
             name="job"
             id="job"
             placeholder="Trabajo"
+            onChange={handleChange}
+            value={data.job}
           />
         </fieldset>
 
@@ -101,5 +129,10 @@ function Form() {
     </>
   );
 }
+
+Form.propTypes = {
+  changeData: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+};
 
 export default Form;
