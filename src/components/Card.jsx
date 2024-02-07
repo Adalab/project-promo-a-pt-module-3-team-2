@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "../scss/Card.scss";
 
-function Card(data) {
+function Card({data}) {
   return (
     <article className="card">
       <h2 className="card__projectTitle">

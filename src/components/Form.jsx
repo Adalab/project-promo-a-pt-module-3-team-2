@@ -1,6 +1,10 @@
 import '../scss/Form.scss';
+import PropTypes from "prop-types";
 
-function Form() {
+function Form({changeData , data}) {
+  const handleChange = (event) => {
+    changeData(event.currentTarget.value , event.currentTarget.id);
+  }
   return (
     <>
       <form className="addForm">
@@ -15,6 +19,8 @@ function Form() {
             name="name"
             id="name"
             placeholder="Nombre del proyecto"
+            onInput={handleChange}
+            value={data.name}
           />
           <input
             className="addForm__input"
@@ -22,6 +28,17 @@ function Form() {
             name="slogan"
             id="slogan"
             placeholder="Slogan"
+            onInput={handleChange}
+            value={data.slogan}
+          />
+          <input
+            className="addForm__input"
+            type="text"
+            name="technologies"
+            id="technologies"
+            placeholder="Tecnologías"
+            onInput={handleChange}
+            value={data.technologies}
           />
           <div className="addForm__2col">
             <input
@@ -30,6 +47,8 @@ function Form() {
               name="repo"
               id="repo"
               placeholder="Repositorio"
+              onInput={handleChange}
+              value={data.repo}
             />
             <input
               className="addForm__input"
@@ -37,15 +56,11 @@ function Form() {
               name="demo"
               id="demo"
               placeholder="Demo"
+              onInput={handleChange}
+              value={data.demo}
             />
           </div>
-          <input
-            className="addForm__input"
-            type="text"
-            name="technologies"
-            id="technologies"
-            placeholder="Tecnologías"
-          />
+          
           <textarea
             className="addForm__input"
             type="text"
@@ -53,6 +68,8 @@ function Form() {
             id="desc"
             placeholder="Descripción"
             rows="5"
+            onInput={handleChange}
+            value={data.desc}
           ></textarea>
         </fieldset>
 
@@ -61,9 +78,11 @@ function Form() {
           <input
             className="addForm__input"
             type="text"
-            name="autor"
-            id="autor"
+            name="author"
+            id="author"
             placeholder="Nombre"
+            onInput={handleChange}
+            value={data.author}
           />
           <input
             className="addForm__input"
@@ -71,6 +90,8 @@ function Form() {
             name="job"
             id="job"
             placeholder="Trabajo"
+            onInput={handleChange}
+            value={data.job}
           />
         </fieldset>
 
@@ -81,6 +102,13 @@ function Form() {
           <input
             className="addForm__hidden"
             type="file"
+            name="photo"
+            id="photo"
+            accept="image/*"
+          />
+          <input
+            className="addForm__hidden"
+            type="file"
             name="image"
             id="image"
             accept="image/*"
@@ -88,13 +116,7 @@ function Form() {
           <label htmlFor="photo" className="button">
             Subir foto de la autora
           </label>
-          <input
-            className="addForm__hidden"
-            type="file"
-            name="photo"
-            id="photo"
-            accept="image/*"
-          />
+         
           <button className="button--large">Guardar proyecto</button>
         </fieldset>
       </form>

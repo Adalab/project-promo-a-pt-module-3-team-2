@@ -18,10 +18,16 @@ function App() {
     image: "",
   });
 
+  const changeData = (nameProp , newValue) => {
+    const cloneData = {...data};
+    cloneData[nameProp] = newValue;
+    setData(cloneData);
+  }
+
   return (
     <div>
       <Header />
-      <Create data={data} />
+      <Create data={data} changeData={changeData} />
       <Footer />
     </div>
   );
