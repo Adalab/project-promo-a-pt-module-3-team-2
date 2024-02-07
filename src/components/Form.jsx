@@ -2,6 +2,8 @@ import '../scss/Form.scss';
 
 import PropTypes from 'prop-types';
 
+import GetAvatar from './GetAvatar';
+
 function Form({ changeData, data }) {
 
   const handleChange = (event) => {
@@ -12,6 +14,14 @@ function Form({ changeData, data }) {
     changeData( attrIdOfInput, newValue );
   
   };
+
+  const updatePhoto = (image) => {
+      changeData('photo', image);
+    };
+
+  const updateImage = (image) => {
+      changeData('image', image);
+    }
 
   return (
     <>
@@ -103,26 +113,11 @@ function Form({ changeData, data }) {
         </fieldset>
 
         <fieldset className="addForm__group--upload">
-          <label htmlFor="image" className="button">
-            Subir foto del proyecto
-          </label>
-          <input
-            className="addForm__hidden"
-            type="file"
-            name="image"
-            id="image"
-            accept="image/*"
-          />
-          <label htmlFor="photo" className="button">
-            Subir foto de la autora
-          </label>
-          <input
-            className="addForm__hidden"
-            type="file"
-            name="photo"
-            id="photo"
-            accept="image/*"
-          />
+          
+          <GetAvatar updateAvatar={updateImage} text="Subir foto del proyecto"/>
+          
+          <GetAvatar updateAvatar={updatePhoto} text="Subir foto de la autora"/>
+         
           <button className="button--large">Guardar proyecto</button>
         </fieldset>
       </form>

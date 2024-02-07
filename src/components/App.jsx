@@ -14,9 +14,10 @@ function App() {
     desc: "",
     author: "",
     job: "",
-    photo: "",
-    image: "",
+    photo: "", // Foto de la autora
+    image: "", // Foto del proyecto
   });
+
 
   const changeData = (nameProp, newValue) => {
     const clonData = { ...data };
