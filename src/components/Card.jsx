@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import "../scss/Card.scss";
 
+import defaultPhoto from "../images/avatar.webp";
+
 function Card({ data }) {
   return (
     <article className="card">
@@ -9,7 +11,7 @@ function Card({ data }) {
       </h2>
 
       <div className="card__author">
-        <div className="card__authorPhoto"></div>
+        <div className="card__authorPhoto" style={{ backgroundImage: `url(${data.photo || defaultPhoto})` }} ></div>
         <p className="card__job">{data.job || "Full stack Developer"}</p>
         <h3 className="card__name">{data.author || "Emmelie Bjôrklund"}</h3>
       </div>

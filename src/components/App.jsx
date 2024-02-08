@@ -44,7 +44,12 @@ function App() {
   return (
     <div>
       <Header />
-      <Create changeData={changeData} data={data} />
+      <Create 
+        changeData={changeData} 
+        data={data} 
+        updateAvatarAuthor={updateAvatarAuthor} 
+        updateAvatarProject={updateAvatarProject} 
+      />
       <Footer />
     </div>
   );

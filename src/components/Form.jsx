@@ -2,9 +2,9 @@ import '../scss/Form.scss';
 
 import PropTypes from 'prop-types';
 
-import GetAvatar from './GetAvatar';
+import GetAvatar from '../components/GetAvatar';
 
-function Form({ changeData, data }) {
+function Form({ changeData, data, updateAvatarAuthor, updateAvatarProject }) {
 
   const handleChange = (event) => {
 
@@ -14,14 +14,6 @@ function Form({ changeData, data }) {
     changeData( attrIdOfInput, newValue );
   
   };
-
-  const updatePhoto = (image) => {
-      changeData('photo', image);
-    };
-
-  const updateImage = (image) => {
-      changeData('image', image);
-    }
 
   return (
     <>
@@ -114,9 +106,15 @@ function Form({ changeData, data }) {
 
         <fieldset className="addForm__group--upload">
           
-          <GetAvatar updateAvatar={updateImage} text="Subir foto del proyecto"/>
+          <GetAvatar 
+            updateAvatar={updateAvatarProject} 
+            text="Subir foto del proyecto"
+          />
           
-          <GetAvatar updateAvatar={updatePhoto} text="Subir foto de la autora"/>
+          <GetAvatar 
+            updateAvatar={updateAvatarAuthor} 
+            text="Subir foto de la autora"
+          />
          
           <button className="button--large">Guardar proyecto</button>
         </fieldset>
@@ -128,6 +126,8 @@ function Form({ changeData, data }) {
 Form.propTypes = {
   changeData: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
+  updateAvatarAuthor: PropTypes.func.isRequired,
+  updateAvatarProject: PropTypes.func.isRequired,
 };
 
 export default Form;
