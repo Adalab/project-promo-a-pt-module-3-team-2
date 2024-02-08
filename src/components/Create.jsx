@@ -7,12 +7,12 @@ import PropTypes from "prop-types";
 
 
 
-function Create({data, cloneData, changeData }) {
+function Create({data, changeData }) {
   return (
     <main className="main">
       <Hero />
       <Preview data={data} />
-      <Form changeData={changeData} cloneData={cloneData} changeData={changeData} />
+      <Form changeData={changeData} data={data}/>
     </main>
   );
 }
@@ -27,9 +27,5 @@ Create.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-Create.PropTypes={
-  cloneData : PropTypes.object,
-  changeData : PropTypes.func,
-}
 export default Create;
 

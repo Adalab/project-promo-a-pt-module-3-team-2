@@ -1,31 +1,17 @@
 import '../scss/Form.scss';
 import PropTypes from "prop-types";
 
-import GetAvatar from './GetAvatar';
-
-function Form({ changeData, data }{changeData, cloneData}) {
+function Form({ changeData, data}) {
 
   const handleChange = (event) => {
 
     const newValue = event.currentTarget.value;
     const attrIdOfInput = event.currentTarget.id;
-    changeData(event.currentTarget.id , event.currentTarget.value);
-
+    
     changeData( attrIdOfInput, newValue );
   
   };
 
-  const updatePhoto = (image) => {
-      changeData('photo', image);
-    };
-
-  const updateImage = (image) => {
-      changeData('image', image);
-    }
-
-  const handleChange = (event) => {
-    changeData(event.currentTarget.id , event.currentTarget.value);
-  }
   return (
     <>
       <form className="addForm">
@@ -41,8 +27,6 @@ function Form({ changeData, data }{changeData, cloneData}) {
             id="name"
             placeholder="Nombre del proyecto"
             onInput={handleChange}
-            value={cloneData.name}
-            onChange={handleChange}
             value={data.name}
           />
           <input
@@ -52,7 +36,7 @@ function Form({ changeData, data }{changeData, cloneData}) {
             id="slogan"
             placeholder="Slogan"
             onInput={handleChange}
-            value={cloneData.slogan}
+            value={data.slogan}
           />
           <input
             className="addForm__input"
@@ -61,9 +45,8 @@ function Form({ changeData, data }{changeData, cloneData}) {
             id="technologies"
             placeholder="Tecnologías"
             onInput={handleChange}
-            value={cloneData.technologies}
-            onChange={handleChange}
-            value={data.slogan}
+            value={data.technologies}
+            
           />
           <div className="addForm__2col">
             <input
@@ -73,8 +56,6 @@ function Form({ changeData, data }{changeData, cloneData}) {
               id="repo"
               placeholder="Repositorio"
               onInput={handleChange}
-              value={cloneData.repo}
-              onChange={handleChange}
               value={data.repo}
             />
             <input
@@ -84,9 +65,8 @@ function Form({ changeData, data }{changeData, cloneData}) {
               id="demo"
               placeholder="Demo"
               onInput={handleChange}
-              value={cloneData.demo}
-              onChange={handleChange}
               value={data.demo}
+              
             />
           </div>
           <input
@@ -95,7 +75,7 @@ function Form({ changeData, data }{changeData, cloneData}) {
             name="technologies"
             id="technologies"
             placeholder="Tecnologías"
-            onChange={handleChange}
+            onInput={handleChange}
             value={data.technologies}
           />
           <textarea
@@ -106,9 +86,8 @@ function Form({ changeData, data }{changeData, cloneData}) {
             placeholder="Descripción"
             rows="5"
             onInput={handleChange}
-            value={cloneData.desc}
-            onChange={handleChange}
             value={data.desc}
+            
           ></textarea>
         </fieldset>
 
@@ -121,9 +100,8 @@ function Form({ changeData, data }{changeData, cloneData}) {
             id="author"
             placeholder="Nombre"
             onInput={handleChange}
-            value={cloneData.author}
-            onChange={handleChange}
             value={data.author}
+            
           />
           <input
             className="addForm__input"
@@ -132,9 +110,8 @@ function Form({ changeData, data }{changeData, cloneData}) {
             id="job"
             placeholder="Trabajo"
             onInput={handleChange}
-            value={cloneData.job}
-            onChange={handleChange}
             value={data.job}
+            
           />
         </fieldset>
 
@@ -167,17 +144,9 @@ function Form({ changeData, data }{changeData, cloneData}) {
   );
 }
 
-Form.propTypes = {
+Form.propTypes={
   changeData: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
-};
-
-Form.propTypes = {
-  changeData: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
-};
-
-Form.PropTypes={
+  data: PropTypes.object,
   name : PropTypes.string.isRequired,
   slogan : PropTypes.string.isRequired,
   technologies : PropTypes.string.isRequired,
