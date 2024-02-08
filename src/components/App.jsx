@@ -3,6 +3,8 @@ import Header from "./Header";
 import Create from "./Create";
 import Footer from "./Footer";
 import { useState } from "react";
+import { cloneElement } from "react";
+import PropTypes from "prop-types";
 
 function App() {
   const [data, setData] = useState({
@@ -31,10 +33,14 @@ function App() {
   return (
     <div>
       <Header />
-      <Create changeData={changeData} data={data} />
+      <Create changeData={changeData} cloneData={cloneData} changeData={changeData} />
       <Footer />
     </div>
   );
+}
+App.propTypes={
+  cloneData : PropTypes.object,
+  changeData : PropTypes.func,
 }
 
 export default App;

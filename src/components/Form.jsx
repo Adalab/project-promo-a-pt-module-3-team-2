@@ -1,15 +1,15 @@
 import '../scss/Form.scss';
-
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 import GetAvatar from './GetAvatar';
 
-function Form({ changeData, data }) {
+function Form({ changeData, data }{changeData, cloneData}) {
 
   const handleChange = (event) => {
 
     const newValue = event.currentTarget.value;
     const attrIdOfInput = event.currentTarget.id;
+    changeData(event.currentTarget.id , event.currentTarget.value);
 
     changeData( attrIdOfInput, newValue );
   
@@ -23,6 +23,9 @@ function Form({ changeData, data }) {
       changeData('image', image);
     }
 
+  const handleChange = (event) => {
+    changeData(event.currentTarget.id , event.currentTarget.value);
+  }
   return (
     <>
       <form className="addForm">
@@ -37,6 +40,8 @@ function Form({ changeData, data }) {
             name="name"
             id="name"
             placeholder="Nombre del proyecto"
+            onInput={handleChange}
+            value={cloneData.name}
             onChange={handleChange}
             value={data.name}
           />
@@ -46,6 +51,17 @@ function Form({ changeData, data }) {
             name="slogan"
             id="slogan"
             placeholder="Slogan"
+            onInput={handleChange}
+            value={cloneData.slogan}
+          />
+          <input
+            className="addForm__input"
+            type="text"
+            name="technologies"
+            id="technologies"
+            placeholder="Tecnologías"
+            onInput={handleChange}
+            value={cloneData.technologies}
             onChange={handleChange}
             value={data.slogan}
           />
@@ -56,6 +72,8 @@ function Form({ changeData, data }) {
               name="repo"
               id="repo"
               placeholder="Repositorio"
+              onInput={handleChange}
+              value={cloneData.repo}
               onChange={handleChange}
               value={data.repo}
             />
@@ -65,6 +83,8 @@ function Form({ changeData, data }) {
               name="demo"
               id="demo"
               placeholder="Demo"
+              onInput={handleChange}
+              value={cloneData.demo}
               onChange={handleChange}
               value={data.demo}
             />
@@ -85,6 +105,8 @@ function Form({ changeData, data }) {
             id="desc"
             placeholder="Descripción"
             rows="5"
+            onInput={handleChange}
+            value={cloneData.desc}
             onChange={handleChange}
             value={data.desc}
           ></textarea>
@@ -98,6 +120,8 @@ function Form({ changeData, data }) {
             name="author"
             id="author"
             placeholder="Nombre"
+            onInput={handleChange}
+            value={cloneData.author}
             onChange={handleChange}
             value={data.author}
           />
@@ -107,16 +131,34 @@ function Form({ changeData, data }) {
             name="job"
             id="job"
             placeholder="Trabajo"
+            onInput={handleChange}
+            value={cloneData.job}
             onChange={handleChange}
             value={data.job}
           />
         </fieldset>
 
         <fieldset className="addForm__group--upload">
-          
-          <GetAvatar updateAvatar={updateImage} text="Subir foto del proyecto"/>
-          
-          <GetAvatar updateAvatar={updatePhoto} text="Subir foto de la autora"/>
+          <label htmlFor="image" className="button">
+            Subir foto del proyecto
+          </label>
+          <input
+            className="addForm__hidden"
+            type="file"
+            name="photo"
+            id="photo"
+            accept="image/*"
+          />
+          <input
+            className="addForm__hidden"
+            type="file"
+            name="image"
+            id="image"
+            accept="image/*"
+          />
+          <label htmlFor="photo" className="button">
+            Subir foto de la autora
+          </label>
          
           <button className="button--large">Guardar proyecto</button>
         </fieldset>
@@ -130,4 +172,19 @@ Form.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
+Form.propTypes = {
+  changeData: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+};
+
+Form.PropTypes={
+  name : PropTypes.string.isRequired,
+  slogan : PropTypes.string.isRequired,
+  technologies : PropTypes.string.isRequired,
+  repo : PropTypes.string.isRequired,
+  demo : PropTypes.string.isRequired,
+  desc : PropTypes.string.isRequired,
+  author : PropTypes.string.isRequired,
+  job : PropTypes.string.isRequired,
+}
 export default Form;
