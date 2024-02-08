@@ -3,6 +3,8 @@ import Header from "./Header";
 import Create from "./Create";
 import Footer from "./Footer";
 import { useState } from "react";
+import { cloneElement } from "react";
+import PropTypes from "prop-types";
 
 function App() {
   const [data, setData] = useState({
@@ -18,19 +20,24 @@ function App() {
     image: "",
   });
 
+  const cloneData = {...data};
   const changeData = (nameProp , newValue) => {
-    const cloneData = {...data};
     cloneData[nameProp] = newValue;
+    console.log(cloneData)
     setData(cloneData);
   }
 
   return (
     <div>
       <Header />
-      <Create data={data} changeData={changeData} />
+      <Create cloneData={cloneData} changeData={changeData} />
       <Footer />
     </div>
   );
+}
+App.propTypes={
+  cloneData : PropTypes.object,
+  changeData : PropTypes.func,
 }
 
 export default App;

@@ -1,9 +1,9 @@
 import '../scss/Form.scss';
 import PropTypes from "prop-types";
 
-function Form({changeData , data}) {
+function Form({changeData, cloneData}) {
   const handleChange = (event) => {
-    changeData(event.currentTarget.value , event.currentTarget.id);
+    changeData(event.currentTarget.id , event.currentTarget.value);
   }
   return (
     <>
@@ -20,7 +20,7 @@ function Form({changeData , data}) {
             id="name"
             placeholder="Nombre del proyecto"
             onInput={handleChange}
-            value={data.name}
+            value={cloneData.name}
           />
           <input
             className="addForm__input"
@@ -29,7 +29,7 @@ function Form({changeData , data}) {
             id="slogan"
             placeholder="Slogan"
             onInput={handleChange}
-            value={data.slogan}
+            value={cloneData.slogan}
           />
           <input
             className="addForm__input"
@@ -38,7 +38,7 @@ function Form({changeData , data}) {
             id="technologies"
             placeholder="Tecnologías"
             onInput={handleChange}
-            value={data.technologies}
+            value={cloneData.technologies}
           />
           <div className="addForm__2col">
             <input
@@ -48,7 +48,7 @@ function Form({changeData , data}) {
               id="repo"
               placeholder="Repositorio"
               onInput={handleChange}
-              value={data.repo}
+              value={cloneData.repo}
             />
             <input
               className="addForm__input"
@@ -57,7 +57,7 @@ function Form({changeData , data}) {
               id="demo"
               placeholder="Demo"
               onInput={handleChange}
-              value={data.demo}
+              value={cloneData.demo}
             />
           </div>
           
@@ -69,7 +69,7 @@ function Form({changeData , data}) {
             placeholder="Descripción"
             rows="5"
             onInput={handleChange}
-            value={data.desc}
+            value={cloneData.desc}
           ></textarea>
         </fieldset>
 
@@ -82,7 +82,7 @@ function Form({changeData , data}) {
             id="author"
             placeholder="Nombre"
             onInput={handleChange}
-            value={data.author}
+            value={cloneData.author}
           />
           <input
             className="addForm__input"
@@ -91,7 +91,7 @@ function Form({changeData , data}) {
             id="job"
             placeholder="Trabajo"
             onInput={handleChange}
-            value={data.job}
+            value={cloneData.job}
           />
         </fieldset>
 
@@ -124,4 +124,14 @@ function Form({changeData , data}) {
   );
 }
 
+Form.PropTypes={
+  name : PropTypes.string.isRequired,
+  slogan : PropTypes.string.isRequired,
+  technologies : PropTypes.string.isRequired,
+  repo : PropTypes.string.isRequired,
+  demo : PropTypes.string.isRequired,
+  desc : PropTypes.string.isRequired,
+  author : PropTypes.string.isRequired,
+  job : PropTypes.string.isRequired,
+}
 export default Form;

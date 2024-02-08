@@ -6,15 +6,19 @@ import PropTypes from "prop-types";
 
 
 
-function Create({data,changeData }) {
+function Create({data,cloneData,changeData }) {
   return (
     <main className="main">
       <Hero />
       <Preview data={data} />
-      <Form data={data} changeData={changeData} />
+      <Form cloneData={cloneData} changeData={changeData} />
     </main>
   );
 }
 
+Create.PropTypes={
+  cloneData : PropTypes.object,
+  changeData : PropTypes.func,
+}
 export default Create;
 
