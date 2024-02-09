@@ -60,7 +60,7 @@ function GetAvatar({updateAvatar, text='Get avatar!'}) {
 
     <label className="button">
         {text}
-        <input className="addForm__hidden" 
+        <input 
             type="file" 
             ref={myFileField}
             style={{ display: 'none' }}

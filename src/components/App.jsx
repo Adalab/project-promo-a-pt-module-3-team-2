@@ -26,6 +26,19 @@ function App() {
     setData(cloneData);
   };
 
+
+  const updateAvatarAuthor = (image) => {
+    const clonData = { ...data }; 
+    clonData.photo = image;
+    setData(clonData);
+  };
+
+  const updateAvatarProject = (image) => {
+    const clonData = { ...data };
+    clonData.image = image;
+    setData(clonData);
+  };
+
   return (
     <div>
       <Header />
