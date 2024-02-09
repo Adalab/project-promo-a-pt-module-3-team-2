@@ -18,17 +18,20 @@ function App() {
     image: "", // Foto del proyecto
   });
 
-  const changeData = (nameProp, newValue) => {
+  /*const changeData = (nameProp, newValue) => {
     const cloneData = { ...data };
 
     cloneData[nameProp] = newValue;
 
     setData(cloneData);
+  };*/
+
+  const changeData = (fieldName, inputValue) => {
+    setData({ ...data, [fieldName]: inputValue });
   };
 
-
   const updateAvatarAuthor = (image) => {
-    const clonData = { ...data }; 
+    const clonData = { ...data };
     clonData.photo = image;
     setData(clonData);
   };
@@ -42,11 +45,11 @@ function App() {
   return (
     <div>
       <Header />
-      <Create 
-        changeData={changeData} 
-        data={data} 
-        updateAvatarAuthor={updateAvatarAuthor} 
-        updateAvatarProject={updateAvatarProject} 
+      <Create
+        changeData={changeData}
+        data={data}
+        updateAvatarAuthor={updateAvatarAuthor}
+        updateAvatarProject={updateAvatarProject}
       />
       <Footer />
     </div>
