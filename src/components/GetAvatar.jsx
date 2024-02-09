@@ -61,10 +61,10 @@ function GetAvatar({updateAvatar, text='Get avatar!'}) {
     <label className="button">
         {text}
         <input 
-            type="file" 
-            ref={myFileField}
-            style={{ display: 'none' }}
-            onChange={uploadImage} 
+          type="file" 
+          ref={myFileField}
+          style={{ display: 'none' }}
+          onChange={uploadImage} 
         />
     </label>
   );

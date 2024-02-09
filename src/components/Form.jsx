@@ -1,15 +1,15 @@
-import '../scss/Form.scss';
+import "../scss/Form.scss";
+
 import PropTypes from "prop-types";
 
-function Form({ changeData, data}) {
+import GetAvatar from "../components/GetAvatar";
 
+function Form({ changeData, data, updateAvatarAuthor, updateAvatarProject }) {
   const handleChange = (event) => {
-
     const newValue = event.currentTarget.value;
     const attrIdOfInput = event.currentTarget.id;
-    
-    changeData( attrIdOfInput, newValue );
-  
+
+    changeData(attrIdOfInput, newValue);
   };
 
   return (
@@ -38,16 +38,6 @@ function Form({ changeData, data}) {
             onInput={handleChange}
             value={data.slogan}
           />
-          <input
-            className="addForm__input"
-            type="text"
-            name="technologies"
-            id="technologies"
-            placeholder="Tecnologías"
-            onInput={handleChange}
-            value={data.technologies}
-            
-          />
           <div className="addForm__2col">
             <input
               className="addForm__input"
@@ -66,7 +56,6 @@ function Form({ changeData, data}) {
               placeholder="Demo"
               onInput={handleChange}
               value={data.demo}
-              
             />
           </div>
           <input
@@ -87,7 +76,6 @@ function Form({ changeData, data}) {
             rows="5"
             onInput={handleChange}
             value={data.desc}
-            
           ></textarea>
         </fieldset>
 
@@ -101,7 +89,6 @@ function Form({ changeData, data}) {
             placeholder="Nombre"
             onInput={handleChange}
             value={data.author}
-            
           />
           <input
             className="addForm__input"
@@ -111,32 +98,20 @@ function Form({ changeData, data}) {
             placeholder="Trabajo"
             onInput={handleChange}
             value={data.job}
-            
           />
         </fieldset>
 
         <fieldset className="addForm__group--upload">
-          <label htmlFor="image" className="button">
-            Subir foto del proyecto
-          </label>
-          <input
-            className="addForm__hidden"
-            type="file"
-            name="photo"
-            id="photo"
-            accept="image/*"
+          <GetAvatar
+            updateAvatar={updateAvatarProject}
+            text="Subir foto del proyecto"
           />
-          <input
-            className="addForm__hidden"
-            type="file"
-            name="image"
-            id="image"
-            accept="image/*"
+
+          <GetAvatar
+            updateAvatar={updateAvatarAuthor}
+            text="Subir foto de la autora"
           />
-          <label htmlFor="photo" className="button">
-            Subir foto de la autora
-          </label>
-         
+
           <button className="button--large">Guardar proyecto</button>
         </fieldset>
       </form>
@@ -144,16 +119,11 @@ function Form({ changeData, data}) {
   );
 }
 
-Form.propTypes={
+Form.propTypes = {
   changeData: PropTypes.func.isRequired,
-  data: PropTypes.object,
-  name : PropTypes.string.isRequired,
-  slogan : PropTypes.string.isRequired,
-  technologies : PropTypes.string.isRequired,
-  repo : PropTypes.string.isRequired,
-  demo : PropTypes.string.isRequired,
-  desc : PropTypes.string.isRequired,
-  author : PropTypes.string.isRequired,
-  job : PropTypes.string.isRequired,
-}
+  data: PropTypes.object.isRequired,
+  updateAvatarAuthor: PropTypes.func.isRequired,
+  updateAvatarProject: PropTypes.func.isRequired,
+};
+
 export default Form;
