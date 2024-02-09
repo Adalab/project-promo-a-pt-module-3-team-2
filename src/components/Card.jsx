@@ -32,6 +32,7 @@ function Card({ data }) {
             className="icon icon__www"
             href={data.demo || "#"}
             title="Haz click para ver el proyecto online"
+            target="_blank"
           >
             Web link
           </a>
@@ -39,6 +40,7 @@ function Card({ data }) {
             className="icon icon__github"
             href={data.repo || "#"}
             title="Haz click para ver el código del proyecto"
+            target="_blank"
           >
             GitHub link
           </a>
