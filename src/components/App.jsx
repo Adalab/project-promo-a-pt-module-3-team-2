@@ -4,6 +4,8 @@ import Create from "./Create";
 import Footer from "./Footer";
 import { useState } from "react";
 
+import { Link, Route, Routes } from "react-router-dom";
+
 function App() {
   const [data, setData] = useState({
     name: "",
