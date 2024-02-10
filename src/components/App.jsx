@@ -2,6 +2,12 @@ import "../scss/App.scss";
 import Header from "./Header";
 import Create from "./Create";
 import Footer from "./Footer";
+
+import LandingPage from "./pages/LandingPage";
+import ProjectsPage from "./pages/ProjectsPage";
+import FormPage from "./pages/FormPage";
+import DetailPage from "./pages/DetailPage";
+
 import { useState } from "react";
 
 import { Link, Route, Routes } from "react-router-dom";
@@ -47,12 +53,22 @@ function App() {
   return (
     <div>
       <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/form" element={<FormPage data={data} onChange={changeData} />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/detail" element={<DetailPage /> } />
+        </Routes>
+
       <Create
         changeData={changeData}
         data={data}
         updateAvatarAuthor={updateAvatarAuthor}
         updateAvatarProject={updateAvatarProject}
       />
+
+      </main>
       <Footer />
     </div>
   );
