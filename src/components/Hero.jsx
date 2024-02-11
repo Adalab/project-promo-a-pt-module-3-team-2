@@ -12,7 +12,6 @@ function Hero() {
       <Link className="button--link" to="/projects">
         Ver proyectos{" "}
       </Link>
-      ;
     </section>
   );
 }

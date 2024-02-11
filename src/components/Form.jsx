@@ -120,16 +120,19 @@ function Form({
           />
           <ButtonSave text="Guardar proyecto" onSubmit={onSubmit} />
 
-          {Object.keys(fetchResponse).length !== 0 && fetchResponse.success && (
-            <p>
-              Tu proyecto ha sido creado en la siguiente dirección:{" "}
-              <a href={success.cardURL}></a>
+          {fetchResponse !== undefined && fetchResponse.success && (
+            <p className="submitOK">
+              Tu proyecto ha sido creado en la siguiente dirección:&nbsp;
+              <a className="url" href={fetchResponse.cardURL} target="_blank">
+                {fetchResponse.cardURL}
+              </a>
             </p>
           )}
-          {Object.keys(fetchResponse).length !== 0 &&
-            !fetchResponse.success && (
-              <p>Ha ocurrido un error: {fetchResponse.error}</p>
-            )}
+          {fetchResponse !== undefined && !fetchResponse.success && (
+            <p className="submitKO">
+              Ha ocurrido un error: {fetchResponse.error}
+            </p>
+          )}
         </fieldset>
       </form>
     </>

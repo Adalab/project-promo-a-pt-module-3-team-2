@@ -10,7 +10,7 @@ import DetailPage from "./pages/DetailPage";
 
 import { useState } from "react";
 
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [data, setData] = useState({
@@ -22,11 +22,11 @@ function App() {
     desc: "",
     autor: "",
     job: "",
-    photo: "", // Foto de la autora
-    image: "", // Foto del proyecto
+    photo: "", // Foto del proyecto
+    image: "", // Foto de la autora
   });
 
-  const [fetchResponse, setFetchResponse] = useState({});
+  const [fetchResponse, setFetchResponse] = useState();
 
   /*const changeData = (nameProp, newValue) => {
     const cloneData = { ...data };
@@ -42,13 +42,13 @@ function App() {
 
   const updateAvatarAuthor = (image) => {
     const clonData = { ...data };
-    clonData.photo = image;
+    clonData.image = image;
     setData(clonData);
   };
 
   const updateAvatarProject = (image) => {
     const clonData = { ...data };
-    clonData.image = image;
+    clonData.photo = image;
     setData(clonData);
   };
 
@@ -60,7 +60,6 @@ function App() {
     })
       .then((response) => response.json())
       .then((dataResponse) => {
-        console.log(dataResponse);
         setFetchResponse(dataResponse);
       });
   };

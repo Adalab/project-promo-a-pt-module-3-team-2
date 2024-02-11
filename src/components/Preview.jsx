@@ -7,9 +7,10 @@ import defaultPhoto from "../images/ebook-example.jpg";
 function Preview({ data }) {
   return (
     <section className="preview">
-      <div 
+      <div
         className="projectImage"
-        style={{ backgroundImage: `url(${data.image || defaultPhoto})` }}></div>
+        style={{ backgroundImage: `url(${data.photo || defaultPhoto})` }}
+      ></div>
       <Card data={data} />
     </section>
   );

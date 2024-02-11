@@ -13,7 +13,7 @@ function Card({ data }) {
       <div className="card__author">
         <div
           className="card__authorPhoto"
-          style={{ backgroundImage: `url(${data.photo || defaultPhoto})` }}
+          style={{ backgroundImage: `url(${data.image || defaultPhoto})` }}
         ></div>
         <p className="card__job">{data.job || "Full stack Developer"}</p>
         <h3 className="card__name">{data.autor || "Emmelie Bjôrklund"}</h3>
