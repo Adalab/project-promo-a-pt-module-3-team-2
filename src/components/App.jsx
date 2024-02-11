@@ -20,11 +20,13 @@ function App() {
     repo: "",
     demo: "",
     desc: "",
-    author: "",
+    autor: "",
     job: "",
     photo: "", // Foto de la autora
     image: "", // Foto del proyecto
   });
+
+  const [fetchResponse, setFetchResponse] = useState({});
 
   /*const changeData = (nameProp, newValue) => {
     const cloneData = { ...data };
@@ -50,24 +52,41 @@ function App() {
     setData(clonData);
   };
 
+  const handleFetchPost = () => {
+    fetch("https://dev.adalab.es/api/projectCard", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((dataResponse) => {
+        console.log(dataResponse);
+        setFetchResponse(dataResponse);
+      });
+  };
+
   return (
     <div>
       <Header />
       <main>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/form" element={<FormPage data={data} onChange={changeData} />} />
+          <Route
+            path="/form"
+            element={<FormPage data={data} onChange={changeData} />}
+          />
           <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/detail" element={<DetailPage /> } />
+          <Route path="/detail" element={<DetailPage />} />
         </Routes>
 
-      <Create
-        changeData={changeData}
-        data={data}
-        updateAvatarAuthor={updateAvatarAuthor}
-        updateAvatarProject={updateAvatarProject}
-      />
-
+        <Create
+          changeData={changeData}
+          data={data}
+          updateAvatarAuthor={updateAvatarAuthor}
+          updateAvatarProject={updateAvatarProject}
+          onSubmit={handleFetchPost}
+          fetchResponse={fetchResponse}
+        />
       </main>
       <Footer />
     </div>

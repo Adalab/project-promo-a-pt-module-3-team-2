@@ -3,8 +3,16 @@ import "../scss/Form.scss";
 import PropTypes from "prop-types";
 
 import GetAvatar from "../components/GetAvatar";
+import ButtonSave from "../components/ButtonSave";
 
-function Form({ changeData, data, updateAvatarAuthor, updateAvatarProject }) {
+function Form({
+  changeData,
+  data,
+  updateAvatarAuthor,
+  updateAvatarProject,
+  onSubmit,
+  fetchResponse,
+}) {
   const handleChange = (event) => {
     const newValue = event.currentTarget.value;
     const attrIdOfInput = event.currentTarget.id;
@@ -84,11 +92,11 @@ function Form({ changeData, data, updateAvatarAuthor, updateAvatarProject }) {
           <input
             className="addForm__input"
             type="text"
-            name="author"
-            id="author"
+            name="autor"
+            id="autor"
             placeholder="Nombre"
             onInput={handleChange}
-            value={data.author}
+            value={data.autor}
           />
           <input
             className="addForm__input"
@@ -106,13 +114,22 @@ function Form({ changeData, data, updateAvatarAuthor, updateAvatarProject }) {
             updateAvatar={updateAvatarProject}
             text="Subir foto del proyecto"
           />
-
           <GetAvatar
             updateAvatar={updateAvatarAuthor}
             text="Subir foto de la autora"
           />
+          <ButtonSave text="Guardar proyecto" onSubmit={onSubmit} />
 
-          <button className="button--large">Guardar proyecto</button>
+          {Object.keys(fetchResponse).length !== 0 && fetchResponse.success && (
+            <p>
+              Tu proyecto ha sido creado en la siguiente dirección:{" "}
+              <a href={success.cardURL}></a>
+            </p>
+          )}
+          {Object.keys(fetchResponse).length !== 0 &&
+            !fetchResponse.success && (
+              <p>Ha ocurrido un error: {fetchResponse.error}</p>
+            )}
         </fieldset>
       </form>
     </>
@@ -124,6 +141,8 @@ Form.propTypes = {
   data: PropTypes.object.isRequired,
   updateAvatarAuthor: PropTypes.func.isRequired,
   updateAvatarProject: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  fetchResponse: PropTypes.object,
 };
 
 export default Form;

@@ -5,7 +5,14 @@ import "../scss/Create.scss";
 
 import PropTypes from "prop-types";
 
-function Create({ changeData, data, updateAvatarAuthor, updateAvatarProject }) {
+function Create({
+  changeData,
+  data,
+  updateAvatarAuthor,
+  updateAvatarProject,
+  onSubmit,
+  fetchResponse,
+}) {
   return (
     <main className="main">
       <Hero />
@@ -15,6 +22,8 @@ function Create({ changeData, data, updateAvatarAuthor, updateAvatarProject }) {
         data={data}
         updateAvatarAuthor={updateAvatarAuthor}
         updateAvatarProject={updateAvatarProject}
+        onSubmit={onSubmit}
+        fetchResponse={fetchResponse}
       />
     </main>
   );
@@ -25,13 +34,8 @@ Create.propTypes = {
   data: PropTypes.object.isRequired,
   updateAvatarAuthor: PropTypes.func.isRequired,
   updateAvatarProject: PropTypes.func.isRequired,
-};
-
-Create.propTypes = {
-  changeData: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
-  updateAvatarAuthor: PropTypes.func.isRequired,
-  updateAvatarProject: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  fetchResponse: PropTypes.object,
 };
 
 export default Create;
