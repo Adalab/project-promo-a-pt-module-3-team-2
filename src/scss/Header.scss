@@ -38,16 +38,5 @@
   color: var(--color-white);
 }
 
-.header__nav {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  justify-content: center; /* Centra los elementos de header__nav */
-  list-style: none; /* Quita los puntos de lista */
-}
-
-.header__nav-li {
-  font-family: var(--font-title-brand); /* Usa la misma tipografía que proyectos molones */
-}
 
   
