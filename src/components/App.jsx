@@ -72,20 +72,19 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route
             path="/form"
-            element={<FormPage data={data} onChange={changeData} />}
+            element={<FormPage  
+            changeData={changeData}
+            data={data}
+            updateAvatarAuthor={updateAvatarAuthor}
+            updateAvatarProject={updateAvatarProject}
+            onSubmit={handleFetchPost}
+            fetchResponse={fetchResponse} />}
           />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/detail" element={<DetailPage />} />
         </Routes>
 
-        <Create
-          changeData={changeData}
-          data={data}
-          updateAvatarAuthor={updateAvatarAuthor}
-          updateAvatarProject={updateAvatarProject}
-          onSubmit={handleFetchPost}
-          fetchResponse={fetchResponse}
-        />
+        
       </main>
       <Footer />
     </div>
