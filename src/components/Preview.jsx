@@ -9,7 +9,7 @@ function Preview({ data }) {
     <section className="preview">
       <div
         className="projectImage"
-        style={{ backgroundImage: `url(${data.photo || defaultPhoto})` }}
+        style={{ backgroundImage: `url(${data.image || defaultPhoto})` }}
       ></div>
       <Card data={data} />
     </section>
