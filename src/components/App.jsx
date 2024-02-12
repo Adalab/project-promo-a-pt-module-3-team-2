@@ -1,6 +1,5 @@
 import "../scss/App.scss";
 import Header from "./Header";
-import Create from "./Create";
 import Footer from "./Footer";
 
 import LandingPage from "./pages/LandingPage";

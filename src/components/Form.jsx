@@ -123,7 +123,7 @@ function Form({
           {fetchResponse !== undefined && fetchResponse.success && (
             <p className="submitOK">
               Tu proyecto ha sido creado en la siguiente dirección:&nbsp;
-              <a className="url" href={fetchResponse.cardURL} target="_blank">
+              <a className="url" href={fetchResponse.cardURL} target="_blank" rel="noopener noreferrer">
                 {fetchResponse.cardURL}
               </a>
             </p>

@@ -38,6 +38,7 @@ function Card({ data }) {
             href={data.demo || "#"}
             title="Haz click para ver el proyecto online"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Web link
           </a>
@@ -46,6 +47,7 @@ function Card({ data }) {
             href={data.repo || "#"}
             title="Haz click para ver el código del proyecto"
             target="_blank"
+            rel="noopener noreferrer"
           >
             GitHub link
           </a>

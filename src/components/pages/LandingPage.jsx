@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../../scss/LandingPage.scss"
+import "../../scss/LandingPage.scss";
 
 function LandingPage() {
     return (

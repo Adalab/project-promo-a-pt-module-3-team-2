@@ -1,4 +1,7 @@
+import PropTypes from "prop-types";
+
 import Create from "../Create";
+
 function FormPage({
   changeData,
   data,
@@ -20,5 +23,14 @@ function FormPage({
     </div>
   );
 }
+
+FormPage.propTypes = {
+  changeData: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+  updateAvatarAuthor: PropTypes.func.isRequired,
+  updateAvatarProject: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  fetchResponse: PropTypes.func.isRequired,
+};
 
 export default FormPage;

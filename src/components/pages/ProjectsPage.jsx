@@ -9,7 +9,7 @@ function ProjectPage() {
         <p className="hero__text">
           Escaparate en línea para recoger ideas a través de la tecnología
         </p>
-        <Link className="button--link--newproyect" to="/projects">
+        <Link className="button--link--newproyect" to="/form">
           NUEVO PROYECTO{" "}
         </Link>
       </section>
