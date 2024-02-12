@@ -15,7 +15,6 @@ function FormPage( changeData,
           onSubmit={onSubmit}
           fetchResponse={fetchResponse}
         />
-            <h1>Form Page</h1>
         </div>
     )
 }

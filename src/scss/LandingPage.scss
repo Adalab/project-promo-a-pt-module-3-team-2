@@ -1,11 +1,15 @@
-.landing {
-    &̣__header &__title{
-        text-align: center;
-        display: flex;
-        align-items: center;
-        background-color: red;
+
+.landing{
+    &__header {
+            text-align: center;
+
+        }
     }
-}
-body{
-    
+
+.app{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr 80px;
+    align-items: center;
 }
