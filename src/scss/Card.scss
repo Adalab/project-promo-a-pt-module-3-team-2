@@ -18,7 +18,9 @@
     background-image: linear-gradient(to bottom, var(--color-white), var(--color-white)), linear-gradient(to bottom, var(--color-white) 0%, rgba(0, 0, 0, 0));
     background-origin: border-box;
     background-clip: content-box, border-box;
+    margin: 0rem 0rem 1rem 0rem;
   }
+
   
   .card .card__projectTitle {
     grid-column: 2;
