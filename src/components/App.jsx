@@ -22,8 +22,8 @@ function App() {
     desc: "",
     autor: "",
     job: "",
-    photo: "", // Foto del proyecto
-    image: "", // Foto de la autora
+    photo: "", // Foto de la autora
+    image: "", // Foto del proyecto
   });
 
   const [fetchResponse, setFetchResponse] = useState();
@@ -42,13 +42,13 @@ function App() {
 
   const updateAvatarAuthor = (image) => {
     const clonData = { ...data };
-    clonData.image = image;
+    clonData.photo = image;
     setData(clonData);
   };
 
   const updateAvatarProject = (image) => {
     const clonData = { ...data };
-    clonData.photo = image;
+    clonData.image = image;
     setData(clonData);
   };
 
@@ -72,19 +72,20 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route
             path="/form"
-            element={<FormPage  
-            changeData={changeData}
-            data={data}
-            updateAvatarAuthor={updateAvatarAuthor}
-            updateAvatarProject={updateAvatarProject}
-            onSubmit={handleFetchPost}
-            fetchResponse={fetchResponse} />}
+            element={
+              <FormPage
+                changeData={changeData}
+                data={data}
+                updateAvatarAuthor={updateAvatarAuthor}
+                updateAvatarProject={updateAvatarProject}
+                onSubmit={handleFetchPost}
+                fetchResponse={fetchResponse}
+              />
+            }
           />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/detail" element={<DetailPage />} />
         </Routes>
-
-        
       </main>
       <Footer />
     </div>
