@@ -30,7 +30,7 @@ FormPage.propTypes = {
   updateAvatarAuthor: PropTypes.func.isRequired,
   updateAvatarProject: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  fetchResponse: PropTypes.func.isRequired,
+  fetchResponse: PropTypes.object,
 };
 
 export default FormPage;

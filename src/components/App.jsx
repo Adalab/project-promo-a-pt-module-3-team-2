@@ -7,13 +7,13 @@ import ProjectsPage from "./pages/ProjectsPage";
 import FormPage from "./pages/FormPage";
 import DetailPage from "./pages/DetailPage";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-
-  const dataLS = JSON.parse(localStorage.getItem('fetchData'))
+  const initialSavedData = JSON.parse(localStorage.getItem("savedData")) || {};
+  const [savedData, setSavedData] = useState(initialSavedData);
 
   const [data, setData] = useState({
     name: "",
@@ -26,6 +26,7 @@ function App() {
     job: "",
     photo: "", // Foto de la autora
     image: "", // Foto del proyecto
+    ...initialSavedData,
   });
 
   const [fetchResponse, setFetchResponse] = useState();
@@ -38,37 +39,49 @@ function App() {
     setData(cloneData);
   };*/
 
+  useEffect(() => {
+    localStorage.setItem("savedData", JSON.stringify(savedData));
+  }, [savedData]);
+
   const changeData = (fieldName, inputValue) => {
     setData({ ...data, [fieldName]: inputValue });
+    setSavedData({ ...data, [fieldName]: inputValue });
   };
 
   const updateAvatarAuthor = (image) => {
     const clonData = { ...data };
     clonData.photo = image;
     setData(clonData);
+    setSavedData((data) => ({
+      ...data,
+      photo: image,
+    }));
   };
 
   const updateAvatarProject = (image) => {
     const clonData = { ...data };
     clonData.image = image;
     setData(clonData);
+    setSavedData((data) => ({
+      ...data,
+      image: image,
+    }));
   };
 
   const handleFetchPost = () => {
-
-    if (dataLS === null) {
-      fetch("https://dev.adalab.es/api/projectCard", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
-      })
-        .then((response) => response.json())
-        .then((dataResponse) => {
-          setFetchResponse(dataResponse);
-
-          localStorage.setItem ('fetchData', JSON.stringify (dataResponse))
-        });
-    }
+    fetch("https://dev.adalab.es/api/projectCard", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((dataResponse) => {
+        setFetchResponse(dataResponse);
+        if (dataResponse.success) {
+          setSavedData({});
+          localStorage.removeItem("savedData");
+        }
+      });
   };
 
   return (
