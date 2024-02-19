@@ -12,6 +12,9 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
+
+  const dataLS = JSON.parse(localStorage.getItem('fetchData'))
+
   const [data, setData] = useState({
     name: "",
     slogan: "",
@@ -52,15 +55,20 @@ function App() {
   };
 
   const handleFetchPost = () => {
-    fetch("https://dev.adalab.es/api/projectCard", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((response) => response.json())
-      .then((dataResponse) => {
-        setFetchResponse(dataResponse);
-      });
+
+    if (dataLS === null) {
+      fetch("https://dev.adalab.es/api/projectCard", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((response) => response.json())
+        .then((dataResponse) => {
+          setFetchResponse(dataResponse);
+
+          localStorage.setItem ('fetchData', JSON.stringify (dataResponse))
+        });
+    }
   };
 
   return (
