@@ -22,7 +22,7 @@ Este proyecto es una aplicación web diseñada para funcionar como un escaparate
   
 ## Link Github Pages 🌐
 
-Para ver el proyecto, visita el siguiente enlace: [Proyectos molones] https://github.com/Adalab/project-promo-a-pt-module-3-team-2.git
+Para ver el proyecto, visita el siguiente enlace: [Proyectos Molones](http://beta.adalab.es/project-promo-a-pt-module-3-team-2/)
 
 ## Tecnologías Utilizadas
 
