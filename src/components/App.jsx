@@ -24,20 +24,12 @@ function App() {
     desc: "",
     autor: "",
     job: "",
-    photo: "", // Foto de la autora
-    image: "", // Foto del proyecto
+    photo: "", 
+    image: "", 
     ...initialSavedData,
   });
 
   const [fetchResponse, setFetchResponse] = useState();
-
-  /*const changeData = (nameProp, newValue) => {
-    const cloneData = { ...data };
-
-    cloneData[nameProp] = newValue;
-
-    setData(cloneData);
-  };*/
 
   useEffect(() => {
     localStorage.setItem("savedData", JSON.stringify(savedData));

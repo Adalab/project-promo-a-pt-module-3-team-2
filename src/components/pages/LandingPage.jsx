@@ -13,6 +13,9 @@ function LandingPage() {
         <Link className="button__link" to="/form">
           Nuevo proyecto{" "}
         </Link>
+        <Link className="button__link" to="/projects">
+          Catálogo de proyectos {" "}
+        </Link>
       </div>
     </div>
     )

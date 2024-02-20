@@ -17,6 +17,7 @@ function ProjectPage() {
       </section>
 
       <div className="projects__container">
+      <Link clasName="Detail__project" to="/Detail">
         <article className="card">
           <h2 className="card__projectTitle">
             <span className="card__projectTitle--text">
@@ -60,7 +61,9 @@ function ProjectPage() {
             </div>
           </div>
         </article>
+      </Link>
 
+      <Link clasName="Detail__project" to="/Detail">
         <article className="card">
           <h2 className="card__projectTitle">
             <span className="card__projectTitle--text">
@@ -104,7 +107,9 @@ function ProjectPage() {
             </div>
           </div>
         </article>
+      </Link>
 
+      <Link clasName="Detail__project" to="/Detail">
         <article className="card">
           <h2 className="card__projectTitle">
             <span className="card__projectTitle--text">
@@ -148,7 +153,9 @@ function ProjectPage() {
             </div>
           </div>
         </article>
+      </Link>
 
+      <Link clasName="Detail__project" to="/Detail">
         <article className="card">
           <h2 className="card__projectTitle">
             <span className="card__projectTitle--text">
@@ -192,6 +199,7 @@ function ProjectPage() {
             </div>
           </div>
         </article>
+      </Link>
       </div>
     </>
   );
