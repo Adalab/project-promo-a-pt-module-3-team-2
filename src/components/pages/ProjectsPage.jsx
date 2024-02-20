@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import avatar from "../../images/avatar.webp";
 
+import "../../scss/ProjectPage.scss";
+
 function ProjectPage() {
   return (
     <>
@@ -9,12 +11,12 @@ function ProjectPage() {
         <p className="hero__text">
           Escaparate en línea para recoger ideas a través de la tecnología
         </p>
-        <Link className="button--link--newproyect" to="/form">
+        <Link className="button--link--newproyect" to="/detail">
           NUEVO PROYECTO{" "}
         </Link>
       </section>
 
-      <div>
+      <div className="projects__container">
         <article className="card">
           <h2 className="card__projectTitle">
             <span className="card__projectTitle--text">
@@ -58,9 +60,7 @@ function ProjectPage() {
             </div>
           </div>
         </article>
-      </div>
 
-      <div>
         <article className="card">
           <h2 className="card__projectTitle">
             <span className="card__projectTitle--text">
@@ -104,9 +104,7 @@ function ProjectPage() {
             </div>
           </div>
         </article>
-      </div>
 
-      <div>
         <article className="card">
           <h2 className="card__projectTitle">
             <span className="card__projectTitle--text">
@@ -150,9 +148,7 @@ function ProjectPage() {
             </div>
           </div>
         </article>
-      </div>
 
-      <div>
         <article className="card">
           <h2 className="card__projectTitle">
             <span className="card__projectTitle--text">
