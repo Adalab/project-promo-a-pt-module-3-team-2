@@ -61,6 +61,7 @@ function GetAvatar({ updateAvatar, text = "Get avatar!" }) {
       {text}
       <input
         type="file"
+        accept="image/*"
         ref={myFileField}
         style={{ display: "none" }}
         onChange={uploadImage}
