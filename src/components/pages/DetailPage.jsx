@@ -10,6 +10,9 @@ function DetailPage({ data }) {
         <p className="hero__text">
           Escaparate en línea para recoger ideas a través de la tecnología
         </p>
+        <Link className="button--link" to="/projects">
+        Ver proyectos{" "}
+        </Link>
       </section>
       <div className="projects__containers">
         <article className="card">
